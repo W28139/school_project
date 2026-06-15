@@ -9,9 +9,10 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/wevix/ShortVideoRank/main.cpp" "CMakeFiles/ShortVideoRank.dir/main.cpp.o" "gcc" "CMakeFiles/ShortVideoRank.dir/main.cpp.o.d"
+  "/home/wevix/ShortVideoRank/src/CommonConnectionPool.cpp" "CMakeFiles/ShortVideoRank.dir/src/CommonConnectionPool.cpp.o" "gcc" "CMakeFiles/ShortVideoRank.dir/src/CommonConnectionPool.cpp.o.d"
+  "/home/wevix/ShortVideoRank/src/Connection.cpp" "CMakeFiles/ShortVideoRank.dir/src/Connection.cpp.o" "gcc" "CMakeFiles/ShortVideoRank.dir/src/Connection.cpp.o.d"
   "/home/wevix/ShortVideoRank/src/NetServer.cpp" "CMakeFiles/ShortVideoRank.dir/src/NetServer.cpp.o" "gcc" "CMakeFiles/ShortVideoRank.dir/src/NetServer.cpp.o.d"
   "/home/wevix/ShortVideoRank/src/RankManager.cpp" "CMakeFiles/ShortVideoRank.dir/src/RankManager.cpp.o" "gcc" "CMakeFiles/ShortVideoRank.dir/src/RankManager.cpp.o.d"
-  "/home/wevix/ShortVideoRank/src/SqlConnPool.cpp" "CMakeFiles/ShortVideoRank.dir/src/SqlConnPool.cpp.o" "gcc" "CMakeFiles/ShortVideoRank.dir/src/SqlConnPool.cpp.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

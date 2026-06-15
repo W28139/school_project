@@ -2,7 +2,11 @@
 #include <csignal>
 #include <iostream>
 #include "NetServer.h"
-#include "SqlConnPool.h"
+#include<iostream>
+#include <mysql/mysql.h> 
+#include"Connection.h"
+#include<string>
+#include"CommonConnectionPool.h"
 
 // 为了能在信号处理函数中访问到服务器对象，定义一个全局指针（或者使用单例）
 NetServer* g_server = nullptr;
@@ -22,7 +26,8 @@ void handleSignal(int sig) {
 
 int main(int argc, char* argv[]) {
     // 1. 初始化数据库连接池
-    SqlConnPool::Instance()->Init("localhost", 3306, "root", "123456", "video_db", 10);
+    ConnectionPool *cp = ConnectionPool::getConnectionPool();
+    g_server->getRankManager().syncToDb();
 
     muduo::net::EventLoop loop;
     muduo::net::InetAddress listenAddr(8000);

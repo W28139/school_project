@@ -153,6 +153,54 @@ main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ShortVideoRank.dir/build.make CMakeFiles/ShortVideoRank.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+src/CommonConnectionPool.o: src/CommonConnectionPool.cpp.o
+.PHONY : src/CommonConnectionPool.o
+
+# target to build an object file
+src/CommonConnectionPool.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ShortVideoRank.dir/build.make CMakeFiles/ShortVideoRank.dir/src/CommonConnectionPool.cpp.o
+.PHONY : src/CommonConnectionPool.cpp.o
+
+src/CommonConnectionPool.i: src/CommonConnectionPool.cpp.i
+.PHONY : src/CommonConnectionPool.i
+
+# target to preprocess a source file
+src/CommonConnectionPool.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ShortVideoRank.dir/build.make CMakeFiles/ShortVideoRank.dir/src/CommonConnectionPool.cpp.i
+.PHONY : src/CommonConnectionPool.cpp.i
+
+src/CommonConnectionPool.s: src/CommonConnectionPool.cpp.s
+.PHONY : src/CommonConnectionPool.s
+
+# target to generate assembly for a file
+src/CommonConnectionPool.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ShortVideoRank.dir/build.make CMakeFiles/ShortVideoRank.dir/src/CommonConnectionPool.cpp.s
+.PHONY : src/CommonConnectionPool.cpp.s
+
+src/Connection.o: src/Connection.cpp.o
+.PHONY : src/Connection.o
+
+# target to build an object file
+src/Connection.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ShortVideoRank.dir/build.make CMakeFiles/ShortVideoRank.dir/src/Connection.cpp.o
+.PHONY : src/Connection.cpp.o
+
+src/Connection.i: src/Connection.cpp.i
+.PHONY : src/Connection.i
+
+# target to preprocess a source file
+src/Connection.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ShortVideoRank.dir/build.make CMakeFiles/ShortVideoRank.dir/src/Connection.cpp.i
+.PHONY : src/Connection.cpp.i
+
+src/Connection.s: src/Connection.cpp.s
+.PHONY : src/Connection.s
+
+# target to generate assembly for a file
+src/Connection.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ShortVideoRank.dir/build.make CMakeFiles/ShortVideoRank.dir/src/Connection.cpp.s
+.PHONY : src/Connection.cpp.s
+
 src/NetServer.o: src/NetServer.cpp.o
 .PHONY : src/NetServer.o
 
@@ -201,30 +249,6 @@ src/RankManager.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ShortVideoRank.dir/build.make CMakeFiles/ShortVideoRank.dir/src/RankManager.cpp.s
 .PHONY : src/RankManager.cpp.s
 
-src/SqlConnPool.o: src/SqlConnPool.cpp.o
-.PHONY : src/SqlConnPool.o
-
-# target to build an object file
-src/SqlConnPool.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ShortVideoRank.dir/build.make CMakeFiles/ShortVideoRank.dir/src/SqlConnPool.cpp.o
-.PHONY : src/SqlConnPool.cpp.o
-
-src/SqlConnPool.i: src/SqlConnPool.cpp.i
-.PHONY : src/SqlConnPool.i
-
-# target to preprocess a source file
-src/SqlConnPool.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ShortVideoRank.dir/build.make CMakeFiles/ShortVideoRank.dir/src/SqlConnPool.cpp.i
-.PHONY : src/SqlConnPool.cpp.i
-
-src/SqlConnPool.s: src/SqlConnPool.cpp.s
-.PHONY : src/SqlConnPool.s
-
-# target to generate assembly for a file
-src/SqlConnPool.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ShortVideoRank.dir/build.make CMakeFiles/ShortVideoRank.dir/src/SqlConnPool.cpp.s
-.PHONY : src/SqlConnPool.cpp.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -237,15 +261,18 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... src/CommonConnectionPool.o"
+	@echo "... src/CommonConnectionPool.i"
+	@echo "... src/CommonConnectionPool.s"
+	@echo "... src/Connection.o"
+	@echo "... src/Connection.i"
+	@echo "... src/Connection.s"
 	@echo "... src/NetServer.o"
 	@echo "... src/NetServer.i"
 	@echo "... src/NetServer.s"
 	@echo "... src/RankManager.o"
 	@echo "... src/RankManager.i"
 	@echo "... src/RankManager.s"
-	@echo "... src/SqlConnPool.o"
-	@echo "... src/SqlConnPool.i"
-	@echo "... src/SqlConnPool.s"
 .PHONY : help
 
 

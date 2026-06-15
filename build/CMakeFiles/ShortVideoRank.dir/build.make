@@ -83,10 +83,38 @@ CMakeFiles/ShortVideoRank.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ShortVideoRank.dir/main.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/wevix/ShortVideoRank/main.cpp -o CMakeFiles/ShortVideoRank.dir/main.cpp.s
 
+CMakeFiles/ShortVideoRank.dir/src/Connection.cpp.o: CMakeFiles/ShortVideoRank.dir/flags.make
+CMakeFiles/ShortVideoRank.dir/src/Connection.cpp.o: /home/wevix/ShortVideoRank/src/Connection.cpp
+CMakeFiles/ShortVideoRank.dir/src/Connection.cpp.o: CMakeFiles/ShortVideoRank.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/wevix/ShortVideoRank/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/ShortVideoRank.dir/src/Connection.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ShortVideoRank.dir/src/Connection.cpp.o -MF CMakeFiles/ShortVideoRank.dir/src/Connection.cpp.o.d -o CMakeFiles/ShortVideoRank.dir/src/Connection.cpp.o -c /home/wevix/ShortVideoRank/src/Connection.cpp
+
+CMakeFiles/ShortVideoRank.dir/src/Connection.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/ShortVideoRank.dir/src/Connection.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/wevix/ShortVideoRank/src/Connection.cpp > CMakeFiles/ShortVideoRank.dir/src/Connection.cpp.i
+
+CMakeFiles/ShortVideoRank.dir/src/Connection.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ShortVideoRank.dir/src/Connection.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/wevix/ShortVideoRank/src/Connection.cpp -o CMakeFiles/ShortVideoRank.dir/src/Connection.cpp.s
+
+CMakeFiles/ShortVideoRank.dir/src/CommonConnectionPool.cpp.o: CMakeFiles/ShortVideoRank.dir/flags.make
+CMakeFiles/ShortVideoRank.dir/src/CommonConnectionPool.cpp.o: /home/wevix/ShortVideoRank/src/CommonConnectionPool.cpp
+CMakeFiles/ShortVideoRank.dir/src/CommonConnectionPool.cpp.o: CMakeFiles/ShortVideoRank.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/wevix/ShortVideoRank/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/ShortVideoRank.dir/src/CommonConnectionPool.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ShortVideoRank.dir/src/CommonConnectionPool.cpp.o -MF CMakeFiles/ShortVideoRank.dir/src/CommonConnectionPool.cpp.o.d -o CMakeFiles/ShortVideoRank.dir/src/CommonConnectionPool.cpp.o -c /home/wevix/ShortVideoRank/src/CommonConnectionPool.cpp
+
+CMakeFiles/ShortVideoRank.dir/src/CommonConnectionPool.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/ShortVideoRank.dir/src/CommonConnectionPool.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/wevix/ShortVideoRank/src/CommonConnectionPool.cpp > CMakeFiles/ShortVideoRank.dir/src/CommonConnectionPool.cpp.i
+
+CMakeFiles/ShortVideoRank.dir/src/CommonConnectionPool.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ShortVideoRank.dir/src/CommonConnectionPool.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/wevix/ShortVideoRank/src/CommonConnectionPool.cpp -o CMakeFiles/ShortVideoRank.dir/src/CommonConnectionPool.cpp.s
+
 CMakeFiles/ShortVideoRank.dir/src/NetServer.cpp.o: CMakeFiles/ShortVideoRank.dir/flags.make
 CMakeFiles/ShortVideoRank.dir/src/NetServer.cpp.o: /home/wevix/ShortVideoRank/src/NetServer.cpp
 CMakeFiles/ShortVideoRank.dir/src/NetServer.cpp.o: CMakeFiles/ShortVideoRank.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/wevix/ShortVideoRank/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/ShortVideoRank.dir/src/NetServer.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/wevix/ShortVideoRank/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/ShortVideoRank.dir/src/NetServer.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ShortVideoRank.dir/src/NetServer.cpp.o -MF CMakeFiles/ShortVideoRank.dir/src/NetServer.cpp.o.d -o CMakeFiles/ShortVideoRank.dir/src/NetServer.cpp.o -c /home/wevix/ShortVideoRank/src/NetServer.cpp
 
 CMakeFiles/ShortVideoRank.dir/src/NetServer.cpp.i: cmake_force
@@ -100,7 +128,7 @@ CMakeFiles/ShortVideoRank.dir/src/NetServer.cpp.s: cmake_force
 CMakeFiles/ShortVideoRank.dir/src/RankManager.cpp.o: CMakeFiles/ShortVideoRank.dir/flags.make
 CMakeFiles/ShortVideoRank.dir/src/RankManager.cpp.o: /home/wevix/ShortVideoRank/src/RankManager.cpp
 CMakeFiles/ShortVideoRank.dir/src/RankManager.cpp.o: CMakeFiles/ShortVideoRank.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/wevix/ShortVideoRank/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/ShortVideoRank.dir/src/RankManager.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/wevix/ShortVideoRank/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/ShortVideoRank.dir/src/RankManager.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ShortVideoRank.dir/src/RankManager.cpp.o -MF CMakeFiles/ShortVideoRank.dir/src/RankManager.cpp.o.d -o CMakeFiles/ShortVideoRank.dir/src/RankManager.cpp.o -c /home/wevix/ShortVideoRank/src/RankManager.cpp
 
 CMakeFiles/ShortVideoRank.dir/src/RankManager.cpp.i: cmake_force
@@ -111,37 +139,25 @@ CMakeFiles/ShortVideoRank.dir/src/RankManager.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ShortVideoRank.dir/src/RankManager.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/wevix/ShortVideoRank/src/RankManager.cpp -o CMakeFiles/ShortVideoRank.dir/src/RankManager.cpp.s
 
-CMakeFiles/ShortVideoRank.dir/src/SqlConnPool.cpp.o: CMakeFiles/ShortVideoRank.dir/flags.make
-CMakeFiles/ShortVideoRank.dir/src/SqlConnPool.cpp.o: /home/wevix/ShortVideoRank/src/SqlConnPool.cpp
-CMakeFiles/ShortVideoRank.dir/src/SqlConnPool.cpp.o: CMakeFiles/ShortVideoRank.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/wevix/ShortVideoRank/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/ShortVideoRank.dir/src/SqlConnPool.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ShortVideoRank.dir/src/SqlConnPool.cpp.o -MF CMakeFiles/ShortVideoRank.dir/src/SqlConnPool.cpp.o.d -o CMakeFiles/ShortVideoRank.dir/src/SqlConnPool.cpp.o -c /home/wevix/ShortVideoRank/src/SqlConnPool.cpp
-
-CMakeFiles/ShortVideoRank.dir/src/SqlConnPool.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/ShortVideoRank.dir/src/SqlConnPool.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/wevix/ShortVideoRank/src/SqlConnPool.cpp > CMakeFiles/ShortVideoRank.dir/src/SqlConnPool.cpp.i
-
-CMakeFiles/ShortVideoRank.dir/src/SqlConnPool.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ShortVideoRank.dir/src/SqlConnPool.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/wevix/ShortVideoRank/src/SqlConnPool.cpp -o CMakeFiles/ShortVideoRank.dir/src/SqlConnPool.cpp.s
-
 # Object files for target ShortVideoRank
 ShortVideoRank_OBJECTS = \
 "CMakeFiles/ShortVideoRank.dir/main.cpp.o" \
+"CMakeFiles/ShortVideoRank.dir/src/Connection.cpp.o" \
+"CMakeFiles/ShortVideoRank.dir/src/CommonConnectionPool.cpp.o" \
 "CMakeFiles/ShortVideoRank.dir/src/NetServer.cpp.o" \
-"CMakeFiles/ShortVideoRank.dir/src/RankManager.cpp.o" \
-"CMakeFiles/ShortVideoRank.dir/src/SqlConnPool.cpp.o"
+"CMakeFiles/ShortVideoRank.dir/src/RankManager.cpp.o"
 
 # External object files for target ShortVideoRank
 ShortVideoRank_EXTERNAL_OBJECTS =
 
 /home/wevix/ShortVideoRank/bin/ShortVideoRank: CMakeFiles/ShortVideoRank.dir/main.cpp.o
+/home/wevix/ShortVideoRank/bin/ShortVideoRank: CMakeFiles/ShortVideoRank.dir/src/Connection.cpp.o
+/home/wevix/ShortVideoRank/bin/ShortVideoRank: CMakeFiles/ShortVideoRank.dir/src/CommonConnectionPool.cpp.o
 /home/wevix/ShortVideoRank/bin/ShortVideoRank: CMakeFiles/ShortVideoRank.dir/src/NetServer.cpp.o
 /home/wevix/ShortVideoRank/bin/ShortVideoRank: CMakeFiles/ShortVideoRank.dir/src/RankManager.cpp.o
-/home/wevix/ShortVideoRank/bin/ShortVideoRank: CMakeFiles/ShortVideoRank.dir/src/SqlConnPool.cpp.o
 /home/wevix/ShortVideoRank/bin/ShortVideoRank: CMakeFiles/ShortVideoRank.dir/build.make
 /home/wevix/ShortVideoRank/bin/ShortVideoRank: CMakeFiles/ShortVideoRank.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/wevix/ShortVideoRank/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable /home/wevix/ShortVideoRank/bin/ShortVideoRank"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/wevix/ShortVideoRank/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable /home/wevix/ShortVideoRank/bin/ShortVideoRank"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/ShortVideoRank.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

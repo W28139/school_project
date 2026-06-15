@@ -3,8 +3,9 @@
 #include <algorithm>
 #include <iostream>
 #include <mysql/mysql.h>
-#include "SqlConnRAII.h"
+#include "CommonConnectionPool.h"
 
+// #include "SqlConnRAII.h"
 RankManager::RankManager(int topK) : _topK(topK) {
     _minHeap.reserve(_topK);
     // 显式初始化权重，否则 heat 计算会出错
@@ -209,36 +210,48 @@ void RankManager::loadFromFile(const std::string& filename) {
 
 
 void RankManager::syncToDb() {
-    // 1. 锁定内存数据
+    // 1. 锁定并拷贝内存数据（保持原样）
     std::vector<std::shared_ptr<Video>> topList;
     {
         std::lock_guard<std::mutex> lock(_mutex);
-        topList = _minHeap; // 我们同步当前在榜单上的视频即可
+        topList = _minHeap; 
     }
 
     if(topList.empty()) return;
 
-    // 2. 从池中获取连接
-    MYSQL* sql = nullptr;
-    SqlConnRAII(&sql, SqlConnPool::Instance());
+    // 2. 从新的连接池中获取连接
+    // getConnection() 返回的是 std::shared_ptr<Connection>
+    auto sp = ConnectionPool::getConnectionPool()->getConnection();
+    
+    if (sp == nullptr) {
+        LOG("获取数据库连接失败，无法同步数据");
+        return;
+    }
     
     // 3. 批量写入优化：开启事务
-    mysql_query(sql, "START TRANSACTION");
+    // 直接使用封装好的 update 方法执行 SQL
+    sp->update("START TRANSACTION");
 
     for (auto& v : topList) {
-        char sqlStr[512];
-        // 使用 ON DUPLICATE KEY UPDATE：如果 ID 存在就更新，不存在就插入
-        sprintf(sqlStr, "INSERT INTO t_video_rank (video_id, play_count, like_count, heat) "
-                        "VALUES ('%s', %ld, %ld, %f) ON DUPLICATE KEY UPDATE "
-                        "play_count=%ld, like_count=%ld, heat=%f",
+        char sqlStr[1024]; // 建议稍微大一点，防止 video_id 过长
+        
+        // 使用 snprintf 代替 sprintf 更安全
+        snprintf(sqlStr, sizeof(sqlStr), 
+                "INSERT INTO t_video_rank (video_id, play_count, like_count, heat) "
+                "VALUES ('%s', %ld, %ld, %f) ON DUPLICATE KEY UPDATE "
+                "play_count=%ld, like_count=%ld, heat=%f",
                 v->videoId.c_str(), v->playCount, v->likeCount, v->heat,
                 v->playCount, v->likeCount, v->heat);
         
-        if (mysql_query(sql, sqlStr)) {
-            std::cerr << "MySQL Update Error: " << mysql_error(sql) << std::endl;
+        // 执行更新
+        if (!sp->update(sqlStr)) {
+            // 如果某一条失败，Connection 内部已经打印了 LOG
+            // 这里可以选择是否继续或回滚
         }
     }
     
-    mysql_query(sql, "COMMIT"); // 提交事务
-    // std::cout << "Successfully synced " << topList.size() << " videos to MySQL." << std::endl;
+    // 提交事务
+    sp->update("COMMIT"); 
+    
+    // 当 sp 离开作用域，智能指针析构，连接会自动归还到连接池队列中
 }
