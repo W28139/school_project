@@ -35,6 +35,7 @@ namespace muduo {
 		Timestamp lastatime_;		// 时间戳，创建Connection对象时为当前时间，每收到一个报文，把时间戳更新为当前时间	
 
 	public:
+
 		Connection(EventLoop* loop,std::unique_ptr<Socket> clientsock,uint16_t seq = 1);
 		~Connection();
 
@@ -59,5 +60,7 @@ namespace muduo {
 		void sendinloop(const std::string& data);
 
 		bool timeout(time_t now,int val);	// 判断TCP连接是否超时
+
+		void enable();
 	};
 }

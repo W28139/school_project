@@ -74,6 +74,10 @@ namespace muduo {
 		subloops_[idx]->newconnection(conn);	// 将连接加入到 事件循环的 map 里
 		
 		// 建立后回调
+		subloops_[idx]->queueinloop([conn]() {
+			conn->enable();
+		});
+		
 		if(newconnectioncb_) newconnectioncb_(conn);
 	}
 

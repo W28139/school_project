@@ -23,7 +23,6 @@ namespace muduo {
 			std::bind(&Connection::writecallback,this));
 
 		clientchannel_->useet();
-		clientchannel_->enablereading();
 	}
 
 	Connection::~Connection()
@@ -33,6 +32,11 @@ namespace muduo {
 		// printf("该连接已清除\n");
 	}
 
+	void Connection::enable()
+	{
+		clientchannel_->enablereading();
+	}
+	
 	int Connection::fd() const
 	{
 		return clientsock_->fd();
@@ -50,15 +54,19 @@ namespace muduo {
 
 	void Connection::closecallback()
 	{
+		if (disconnect_) return;
 		disconnect_ = true;
 		clientchannel_->remove();
-		closecallback_(shared_from_this());
+		auto self = shared_from_this();
+    	closecallback_(self);
 	}
 	void Connection::errorcallback()
 	{
+		if (disconnect_) return;
 		disconnect_ = true;
 		clientchannel_->remove();
-		errorcallback_(shared_from_this());	
+		auto self = shared_from_this();
+    	errorcallback_(self);
 	}
 
 	void Connection::writecallback()
@@ -73,7 +81,8 @@ namespace muduo {
 		if(outputbuffer_.size()==0)
 		{
 			clientchannel_->disablewriting();// 如果数据为0了，那就关闭监听可写事件，避免一致返回可写事件
-			sendcompletecallback_(shared_from_this());
+			auto self = shared_from_this();
+			sendcompletecallback_(self);
 		}
 	}
 
@@ -137,7 +146,12 @@ namespace muduo {
 
 					lastatime_ = Timestamp::now();
 
-					onmessagecallback_(shared_from_this(), message);
+					auto self = shared_from_this();
+					if (!disconnect_)
+					{
+						auto self = shared_from_this();
+						onmessagecallback_(self, message);
+					}
 				}
 
 				break;
@@ -159,7 +173,6 @@ namespace muduo {
 
 	}
 
-
 	void Connection::send(std::string data)
 	{
 
@@ -178,7 +191,11 @@ namespace muduo {
 		{
 			// 如果当前线程不是IO线程，把发送数据的操作交给IO线程去执行
 			// printf("send() 不在事件循环的线程中。\n");
-			loop_->queueinloop(std::bind(&Connection::sendinloop,this,std::move(data)));
+			auto self = shared_from_this();
+
+			loop_->queueinloop([self, data = std::move(data)]() mutable {
+				self->sendinloop(data);
+			});
 		}
 	}
 
