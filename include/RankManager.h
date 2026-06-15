@@ -3,7 +3,8 @@
 
 #include "Video.h"
 #include <vector>
-#include <unordered_map>
+// #include <unordered_map>
+#include<MyHashMap.h>
 #include <memory>
 #include <mutex>
 
@@ -25,7 +26,7 @@ public:
 private:
     int _topK;
     // 哈希表：ID -> 视频对象指针
-    std::unordered_map<std::string, std::shared_ptr<Video>> _videoMap;
+    MyHashMap<std::string, std::shared_ptr<Video>> _videoMap;
     
     // 小顶堆：存储热度最高的 K 个视频
     // 注意：维护 TopK 高热度，堆顶应该是这 K 个里最小的，这样新来的大的才能顶替它

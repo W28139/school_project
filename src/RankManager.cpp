@@ -17,55 +17,61 @@ void RankManager::updateVideo(const std::string& id, int type, double value)
 {
     std::lock_guard<std::mutex> lock(_mutex);
     // 1. 获取或创建视频对象
-    if (_videoMap.find(id) == _videoMap.end()) 
-    {
-        _videoMap[id] = std::make_shared<Video>(id);
+    std::shared_ptr<Video>* vPtr = _videoMap.get(id);
+
+    if (vPtr == nullptr) {
+        // 如果不存在，创建并存入
+        auto newVideo = std::make_shared<Video>(id);
+        _videoMap.put(id, newVideo);
+        vPtr = _videoMap.get(id); // 重新获取指针
     }
-    auto video = _videoMap[id];
+
+    // 这里 v 是 std::shared_ptr<Video> 的引用
+    auto& v = *vPtr;
 
     // 2. 更新对应指标
     switch (type) 
     {
-        case 1: video->playCount += (long)value; break; // 播放
-        case 2: video->likeCount += (long)value; break; // 点赞
-        case 3: video->shareCount += (long)value; break; // 分享
-        case 4: video->finishRate = value; break;        // 完播率更新
+        case 1: v->playCount += (long)value; break; // 播放
+        case 2: v->likeCount += (long)value; break; // 点赞
+        case 3: v->shareCount += (long)value; break; // 分享
+        case 4: v->finishRate = value; break;        // 完播率更新
         default: break;
     }
 
     // 3. 重新计算热度
-    double oldHeat = video->heat;
-    video->calculateHeat(_w1, _w2, _w3, _w4);
+    double oldHeat = v->heat;
+    v->calculateHeat(_w1, _w2, _w3, _w4);
 
     // 4. 维护小顶堆 (Top 100)
     // 情况A：视频已在榜单中
-    if (video->heapIndex != -1)
+    if (v->heapIndex != -1)
     {
         // 由于是增加热度，在小顶堆中，热度变大应该向下调整（远离堆顶）
         // 如果热度变小（虽然本场景较少），则向上调整
-        if(video->heat > oldHeat)
+        if(v->heat > oldHeat)
         {
-            heapifyDown(video->heapIndex);
+            heapifyDown(v->heapIndex);
         }
         else 
         {
-            heapifyUp(video->heapIndex);
+            heapifyUp(v->heapIndex);
         }
     }
     // 情况B：视频不在榜单中，且榜单未满
     else if (_minHeap.size() < _topK)
     {
-        video->heapIndex = (int)_minHeap.size();
-        _minHeap.push_back(video);
-        heapifyUp(video->heapIndex);
+        v->heapIndex = (int)_minHeap.size();
+        _minHeap.push_back(v);
+        heapifyUp(v->heapIndex);
     }
     // 情况C：视频不在榜单中，且榜单已满，对比堆顶（第100名）
-    else if (video->heat > _minHeap[0]->heat) 
+    else if (v->heat > _minHeap[0]->heat) 
     {
         // 替换掉原来的最后一名（堆顶）
         _minHeap[0]->heapIndex = -1; // 踢出榜单
-        _minHeap[0] = video;
-        video->heapIndex = 0;
+        _minHeap[0] = v;
+        v->heapIndex = 0;
         heapifyDown(0);
     }
 }
@@ -180,15 +186,24 @@ std::vector<std::shared_ptr<Video>> RankManager::getTopList()
     return result;
 }
 
-
 void RankManager::saveToFile(const std::string& filename) {
     std::lock_guard<std::mutex> lock(_mutex);
     std::ofstream ofs(filename);
-    for (auto& pair : _videoMap) {
-        auto v = pair.second;
-        // 保存 ID 播放量 点赞数 分享数 完播率
-        ofs << v->videoId << " " << v->playCount << " " << v->likeCount << " " 
-            << v->shareCount << " " << v->finishRate << "\n";
+    
+    // 1. 获取所有的桶 (vector)
+    auto& buckets = _videoMap.getBuckets();
+
+    // 2. 遍历每一个桶
+    for (auto& bucket : buckets) {
+        // 3. 遍历桶里的链表 (list)
+        for (auto& node : bucket) {
+            // node.key 是 ID, node.value 是 shared_ptr<Video>
+            auto& v = node.value;
+            
+            // 保存 ID 播放量 点赞数 分享数 完播率
+            ofs << v->videoId << " " << v->playCount << " " << v->likeCount << " " 
+                << v->shareCount << " " << v->finishRate << "\n";
+        }
     }
 }
 
