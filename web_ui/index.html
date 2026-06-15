@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>短视频热度实时监控系统 - 100位全榜单</title>
+
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #1a1a2e;
+            color: #fff;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: #e94560;
+            letter-spacing: 2px;
+        }
+
+        /* 控制台 */
+        .controls {
+            text-align: center;
+            background: #16213e;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #0f3460;
+        }
+
+        .btn-stress {
+            background: #e94560;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            margin: 5px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        /* 滚榜容器：增加滚动支持 */
+        .rank-list-container {
+            position: relative;
+            background: #16213e;
+            border-radius: 10px;
+            border: 1px solid #0f3460;
+            
+            /* --- 修改点：增加高度并允许滚动 --- */
+            height: 700px; 
+            overflow-y: auto; 
+            overflow-x: hidden;
+        }
+
+        /* 固定表头 */
+        .list-header {
+            display: flex;
+            background: #0f3460;
+            color: #e94560;
+            font-weight: bold;
+            padding: 12px 0;
+            text-align: center;
+            position: sticky; /* 固定在顶部 */
+            top: 0;
+            z-index: 100;
+            border-bottom: 2px solid #e94560;
+        }
+
+        /* 列表主体：高度需足够容纳 100 行 (100 * 50px) */
+        #list-body {
+            position: relative;
+            width: 100%;
+            height: 5000px; /* 100条 * 50px */
+        }
+
+        .list-row {
+            position: absolute;
+            width: 100%;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            border-bottom: 1px solid #0f3460;
+            transition: transform 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55), background 0.3s;
+            background: #16213e;
+        }
+
+        .list-row:hover { background: #1f4068; z-index: 10; }
+
+        /* 单元格宽度 */
+        .col-rank { width: 10%; }
+        .col-id { width: 30%; }
+        .col-heat { width: 20%; }
+        .col-play { width: 20%; }
+        .col-like { width: 20%; }
+
+        .rank-badge {
+            background: #e94560;
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-size: 0.85em;
+            min-width: 25px;
+            display: inline-block;
+        }
+
+        /* 前三名美化 */
+        .list-row[data-rank="1"] .rank-badge { background: #ffd700; color: #000; }
+        .list-row[data-rank="2"] .rank-badge { background: #c0c0c0; color: #000; }
+        .list-row[data-rank="3"] .rank-badge { background: #cd7f32; color: #000; }
+
+        .heat-value { color: #4ecca3; font-weight: bold; }
+
+        /* 自定义滚动条样式 (适配深色主题) */
+        .rank-list-container::-webkit-scrollbar { width: 8px; }
+        .rank-list-container::-webkit-scrollbar-track { background: #16213e; }
+        .rank-list-container::-webkit-scrollbar-thumb { background: #e94560; border-radius: 10px; }
+
+        #last-update { text-align: right; color: #aaa; margin-bottom: 5px; font-size: 0.8em; }
+        
+        .value-update { animation: pulse 0.4s; }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); color: #fff; }
+            100% { transform: scale(1); }
+        }
+    </style>
+</head>
+
+<body>
+<div class="container">
+
+    <h1> 视频热度实时榜单 (TOP 100)</h1>
+
+    <div class="controls">
+        <button class="btn-stress" onclick="stress('10k')">1万请求</button>
+        <button class="btn-stress" onclick="stress('100k')">10万请求</button>
+        <button class="btn-stress" onclick="stress('1m')">100万请求</button>
+        <input id="threads" placeholder="线程" style="width:50px; padding:5px;">
+        <input id="messages" placeholder="请求数" style="width:80px; padding:5px;">
+        <button class="btn-stress" onclick="customStress()">启动压测</button>
+        <span id="test-status"></span>
+    </div>
+
+    <div id="last-update">等待数据...</div>
+
+    <div class="rank-list-container">
+        <div class="list-header">
+            <div class="col-rank">排名</div>
+            <div class="col-id">视频ID</div>
+            <div class="col-heat">热度</div>
+            <div class="col-play">播放量</div>
+            <div class="col-like">点赞量</div>
+        </div>
+        <!-- 滚动区域 -->
+        <div id="list-body"></div>
+    </div>
+
+</div>
+
+<script>
+const SERVER_IP = "192.144.188.86";
+const ROW_HEIGHT = 50; 
+let itemMap = new Map();
+let fetching = false;
+
+async function fetchRank() {
+    if (fetching) return;
+    fetching = true;
+    try {
+        const res = await fetch(`http://${SERVER_IP}:8000/api/rank`);
+        const data = await res.json(); 
+        // 这里的 data 需要后端确实返回 100 条
+        if (data && data.length > 0) {
+            renderRollingList(data);
+            document.getElementById("last-update").innerText = "更新于：" + new Date().toLocaleTimeString();
+        }
+    } catch (e) {
+        console.error("Fetch error:", e);
+    } finally {
+        fetching = false;
+    }
+}
+
+function renderRollingList(data) {
+    const listBody = document.getElementById("list-body");
+    
+    // 动态调整 list-body 的总高度，确保滚动条正确
+    listBody.style.height = (data.length * ROW_HEIGHT) + "px";
+
+    const activeIds = new Set();
+
+    data.forEach((item, index) => {
+        const id = item.id;
+        activeIds.add(id);
+        
+        let rowElement = itemMap.get(id);
+
+        if (!rowElement) {
+            rowElement = createRowElement(item);
+            listBody.appendChild(rowElement);
+            itemMap.set(id, rowElement);
+        }
+
+        // 位置计算 (注意：这里的 index 是 0-99)
+        rowElement.style.transform = `translateY(${index * ROW_HEIGHT}px)`;
+        rowElement.setAttribute('data-rank', item.rank);
+        
+        updateRowContent(rowElement, item);
+    });
+
+    // 清理不再榜单的数据
+    for (let [id, el] of itemMap) {
+        if (!activeIds.has(id)) {
+            el.style.opacity = "0";
+            setTimeout(() => {
+                if (el.parentNode) el.parentNode.removeChild(el);
+                itemMap.delete(id);
+            }, 600);
+        }
+    }
+}
+
+function createRowElement(item) {
+    const div = document.createElement('div');
+    div.className = 'list-row';
+    div.innerHTML = `
+        <div class="col-rank"><span class="rank-badge">${item.rank}</span></div>
+        <div class="col-id">${item.id}</div>
+        <div class="col-heat heat-value">${item.heat.toFixed(2)}</div>
+        <div class="col-play">${item.play}</div>
+        <div class="col-like">${item.like}</div>
+    `;
+    return div;
+}
+
+function updateRowContent(el, data) {
+    const rankBadge = el.querySelector('.rank-badge');
+    const heatVal = el.querySelector('.heat-value');
+    const playVal = el.querySelector('.col-play');
+    const likeVal = el.querySelector('.col-like');
+
+    if (heatVal.innerText != data.heat.toFixed(2)) {
+        heatVal.innerText = data.heat.toFixed(2);
+        heatVal.classList.add('value-update');
+        setTimeout(() => heatVal.classList.remove('value-update'), 400);
+    }
+    
+    rankBadge.innerText = data.rank;
+    playVal.innerText = data.play;
+    likeVal.innerText = data.like;
+}
+
+async function stress(level) {
+    const status = document.getElementById("test-status");
+    try {
+        status.innerText = `启动 ${level} 压测...`;
+        const res = await fetch(`http://${SERVER_IP}:5000/stress/${level}`);
+        const data = await res.json();
+        status.innerText = `✅ 已发送`;
+    } catch (e) {
+        status.innerText = "❌ 失败";
+    }
+    setTimeout(() => status.innerText = "", 3000);
+}
+
+async function customStress() {
+    const threads = document.getElementById("threads").value || 10;
+    const messages = document.getElementById("messages").value || 10000;
+    const status = document.getElementById("test-status");
+    try {
+        status.innerText = "正在启动...";
+        await fetch(`http://${SERVER_IP}:5000/stress/custom`, {
+            method: "POST",
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify({ threads: parseInt(threads), messages: parseInt(messages) })
+        });
+        status.innerText = "✅ 启动成功";
+    } catch (e) {
+        status.innerText = "❌ 失败";
+    }
+}
+
+setInterval(fetchRank, 1000);
+fetchRank();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,3 @@
+/home/wevix/ShortVideoRank/build/CMakeFiles/ShortVideoRank.dir
+/home/wevix/ShortVideoRank/build/CMakeFiles/edit_cache.dir
+/home/wevix/ShortVideoRank/build/CMakeFiles/rebuild_cache.dir
