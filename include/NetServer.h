@@ -1,26 +1,30 @@
-#ifndef NET_SERVER_H
-#define NET_SERVER_H
-
-#include <muduo/net/TcpServer.h>
-#include <muduo/net/EventLoop.h>
+#pragma once
+#include "muduo/TcpServer.h"  
 #include "RankManager.h"
+#include <memory>
+#include <string>
+#include <vector>
+#include <thread>
+#include <chrono>
+
+// 关键：把你库里的 spConnection 定义为业务层用的 TcpConnectionPtr
+using TcpConnectionPtr = muduo::spConnection; 
 
 class NetServer {
 public:
-    void setThreadNum(int numThreads); 
-    NetServer(muduo::net::EventLoop* loop, const muduo::net::InetAddress& listenAddr);
+    // 构造函数参数改为你的库支持的格式
+    NetServer(std::string ip, uint16_t port, int threadNum);
     void start();
     RankManager& getRankManager();
 
 private:
-    // 处理连接事件
-    void onConnection(const muduo::net::TcpConnectionPtr& conn);
-    // 处理消息接收事件
-    void onMessage(const muduo::net::TcpConnectionPtr& conn, muduo::net::Buffer* buf, muduo::Timestamp time);
+    muduo::TcpServer _server;
+    RankManager _rm;
 
-    muduo::net::TcpServer _server;
-    RankManager _rm; // 核心逻辑对象
+    // 回调函数参数对应你库里的定义
+    void onConnection(TcpConnectionPtr conn);
+    void onMessage(TcpConnectionPtr conn, std::string& message); // 你的库直接给 string
 
+    // 增加定时任务的启动函数
+    void runTimerTasks(); 
 };
-
-#endif

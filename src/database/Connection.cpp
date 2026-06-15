@@ -1,4 +1,4 @@
-#include "Connection.h"
+#include "database/Connection.h"
 #include "public.h"
 #include <iostream>
 
@@ -18,7 +18,7 @@ Connection::~Connection()
 }
 
 // 连接数据库
-bool Connection::connect(string ip, unsigned short port, string user, string password, string dbname) 
+bool Connection::connect(std::string ip, unsigned short port, std::string user, std::string password, std::string dbname) 
 {
     MYSQL* p = mysql_real_connect(_conn, ip.c_str(), user.c_str(), 
                                   password.c_str(), dbname.c_str(), port, nullptr, 0);
@@ -30,12 +30,12 @@ bool Connection::connect(string ip, unsigned short port, string user, string pas
     } 
     else 
     {
-        LOG("connect fail! MySQL Error: " + string(mysql_error(_conn)));
+        LOG("connect fail! MySQL Error: " + std::string(mysql_error(_conn)));
         return false;
     }
 }
 
-bool Connection::update(string sql)
+bool Connection::update(std::string sql)
 {
     // 更新操作 insert、delete、update
     if (mysql_query(_conn, sql.c_str()))
@@ -47,7 +47,7 @@ bool Connection::update(string sql)
 }
 
 // 查询操作
-MYSQL_RES* Connection::query(string sql) 
+MYSQL_RES* Connection::query(std::string sql) 
 {
     // 查询 select
     if (mysql_query(_conn, sql.c_str())) 

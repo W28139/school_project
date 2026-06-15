@@ -249,6 +249,270 @@ src/database/Connection.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ShortVideoRank.dir/build.make CMakeFiles/ShortVideoRank.dir/src/database/Connection.cpp.s
 .PHONY : src/database/Connection.cpp.s
 
+src/muduo/Acceptor.o: src/muduo/Acceptor.cpp.o
+.PHONY : src/muduo/Acceptor.o
+
+# target to build an object file
+src/muduo/Acceptor.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ShortVideoRank.dir/build.make CMakeFiles/ShortVideoRank.dir/src/muduo/Acceptor.cpp.o
+.PHONY : src/muduo/Acceptor.cpp.o
+
+src/muduo/Acceptor.i: src/muduo/Acceptor.cpp.i
+.PHONY : src/muduo/Acceptor.i
+
+# target to preprocess a source file
+src/muduo/Acceptor.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ShortVideoRank.dir/build.make CMakeFiles/ShortVideoRank.dir/src/muduo/Acceptor.cpp.i
+.PHONY : src/muduo/Acceptor.cpp.i
+
+src/muduo/Acceptor.s: src/muduo/Acceptor.cpp.s
+.PHONY : src/muduo/Acceptor.s
+
+# target to generate assembly for a file
+src/muduo/Acceptor.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ShortVideoRank.dir/build.make CMakeFiles/ShortVideoRank.dir/src/muduo/Acceptor.cpp.s
+.PHONY : src/muduo/Acceptor.cpp.s
+
+src/muduo/Buffer.o: src/muduo/Buffer.cpp.o
+.PHONY : src/muduo/Buffer.o
+
+# target to build an object file
+src/muduo/Buffer.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ShortVideoRank.dir/build.make CMakeFiles/ShortVideoRank.dir/src/muduo/Buffer.cpp.o
+.PHONY : src/muduo/Buffer.cpp.o
+
+src/muduo/Buffer.i: src/muduo/Buffer.cpp.i
+.PHONY : src/muduo/Buffer.i
+
+# target to preprocess a source file
+src/muduo/Buffer.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ShortVideoRank.dir/build.make CMakeFiles/ShortVideoRank.dir/src/muduo/Buffer.cpp.i
+.PHONY : src/muduo/Buffer.cpp.i
+
+src/muduo/Buffer.s: src/muduo/Buffer.cpp.s
+.PHONY : src/muduo/Buffer.s
+
+# target to generate assembly for a file
+src/muduo/Buffer.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ShortVideoRank.dir/build.make CMakeFiles/ShortVideoRank.dir/src/muduo/Buffer.cpp.s
+.PHONY : src/muduo/Buffer.cpp.s
+
+src/muduo/Channel.o: src/muduo/Channel.cpp.o
+.PHONY : src/muduo/Channel.o
+
+# target to build an object file
+src/muduo/Channel.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ShortVideoRank.dir/build.make CMakeFiles/ShortVideoRank.dir/src/muduo/Channel.cpp.o
+.PHONY : src/muduo/Channel.cpp.o
+
+src/muduo/Channel.i: src/muduo/Channel.cpp.i
+.PHONY : src/muduo/Channel.i
+
+# target to preprocess a source file
+src/muduo/Channel.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ShortVideoRank.dir/build.make CMakeFiles/ShortVideoRank.dir/src/muduo/Channel.cpp.i
+.PHONY : src/muduo/Channel.cpp.i
+
+src/muduo/Channel.s: src/muduo/Channel.cpp.s
+.PHONY : src/muduo/Channel.s
+
+# target to generate assembly for a file
+src/muduo/Channel.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ShortVideoRank.dir/build.make CMakeFiles/ShortVideoRank.dir/src/muduo/Channel.cpp.s
+.PHONY : src/muduo/Channel.cpp.s
+
+src/muduo/Connection.o: src/muduo/Connection.cpp.o
+.PHONY : src/muduo/Connection.o
+
+# target to build an object file
+src/muduo/Connection.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ShortVideoRank.dir/build.make CMakeFiles/ShortVideoRank.dir/src/muduo/Connection.cpp.o
+.PHONY : src/muduo/Connection.cpp.o
+
+src/muduo/Connection.i: src/muduo/Connection.cpp.i
+.PHONY : src/muduo/Connection.i
+
+# target to preprocess a source file
+src/muduo/Connection.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ShortVideoRank.dir/build.make CMakeFiles/ShortVideoRank.dir/src/muduo/Connection.cpp.i
+.PHONY : src/muduo/Connection.cpp.i
+
+src/muduo/Connection.s: src/muduo/Connection.cpp.s
+.PHONY : src/muduo/Connection.s
+
+# target to generate assembly for a file
+src/muduo/Connection.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ShortVideoRank.dir/build.make CMakeFiles/ShortVideoRank.dir/src/muduo/Connection.cpp.s
+.PHONY : src/muduo/Connection.cpp.s
+
+src/muduo/Epoll.o: src/muduo/Epoll.cpp.o
+.PHONY : src/muduo/Epoll.o
+
+# target to build an object file
+src/muduo/Epoll.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ShortVideoRank.dir/build.make CMakeFiles/ShortVideoRank.dir/src/muduo/Epoll.cpp.o
+.PHONY : src/muduo/Epoll.cpp.o
+
+src/muduo/Epoll.i: src/muduo/Epoll.cpp.i
+.PHONY : src/muduo/Epoll.i
+
+# target to preprocess a source file
+src/muduo/Epoll.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ShortVideoRank.dir/build.make CMakeFiles/ShortVideoRank.dir/src/muduo/Epoll.cpp.i
+.PHONY : src/muduo/Epoll.cpp.i
+
+src/muduo/Epoll.s: src/muduo/Epoll.cpp.s
+.PHONY : src/muduo/Epoll.s
+
+# target to generate assembly for a file
+src/muduo/Epoll.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ShortVideoRank.dir/build.make CMakeFiles/ShortVideoRank.dir/src/muduo/Epoll.cpp.s
+.PHONY : src/muduo/Epoll.cpp.s
+
+src/muduo/EventLoop.o: src/muduo/EventLoop.cpp.o
+.PHONY : src/muduo/EventLoop.o
+
+# target to build an object file
+src/muduo/EventLoop.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ShortVideoRank.dir/build.make CMakeFiles/ShortVideoRank.dir/src/muduo/EventLoop.cpp.o
+.PHONY : src/muduo/EventLoop.cpp.o
+
+src/muduo/EventLoop.i: src/muduo/EventLoop.cpp.i
+.PHONY : src/muduo/EventLoop.i
+
+# target to preprocess a source file
+src/muduo/EventLoop.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ShortVideoRank.dir/build.make CMakeFiles/ShortVideoRank.dir/src/muduo/EventLoop.cpp.i
+.PHONY : src/muduo/EventLoop.cpp.i
+
+src/muduo/EventLoop.s: src/muduo/EventLoop.cpp.s
+.PHONY : src/muduo/EventLoop.s
+
+# target to generate assembly for a file
+src/muduo/EventLoop.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ShortVideoRank.dir/build.make CMakeFiles/ShortVideoRank.dir/src/muduo/EventLoop.cpp.s
+.PHONY : src/muduo/EventLoop.cpp.s
+
+src/muduo/InetAddress.o: src/muduo/InetAddress.cpp.o
+.PHONY : src/muduo/InetAddress.o
+
+# target to build an object file
+src/muduo/InetAddress.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ShortVideoRank.dir/build.make CMakeFiles/ShortVideoRank.dir/src/muduo/InetAddress.cpp.o
+.PHONY : src/muduo/InetAddress.cpp.o
+
+src/muduo/InetAddress.i: src/muduo/InetAddress.cpp.i
+.PHONY : src/muduo/InetAddress.i
+
+# target to preprocess a source file
+src/muduo/InetAddress.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ShortVideoRank.dir/build.make CMakeFiles/ShortVideoRank.dir/src/muduo/InetAddress.cpp.i
+.PHONY : src/muduo/InetAddress.cpp.i
+
+src/muduo/InetAddress.s: src/muduo/InetAddress.cpp.s
+.PHONY : src/muduo/InetAddress.s
+
+# target to generate assembly for a file
+src/muduo/InetAddress.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ShortVideoRank.dir/build.make CMakeFiles/ShortVideoRank.dir/src/muduo/InetAddress.cpp.s
+.PHONY : src/muduo/InetAddress.cpp.s
+
+src/muduo/Socket.o: src/muduo/Socket.cpp.o
+.PHONY : src/muduo/Socket.o
+
+# target to build an object file
+src/muduo/Socket.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ShortVideoRank.dir/build.make CMakeFiles/ShortVideoRank.dir/src/muduo/Socket.cpp.o
+.PHONY : src/muduo/Socket.cpp.o
+
+src/muduo/Socket.i: src/muduo/Socket.cpp.i
+.PHONY : src/muduo/Socket.i
+
+# target to preprocess a source file
+src/muduo/Socket.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ShortVideoRank.dir/build.make CMakeFiles/ShortVideoRank.dir/src/muduo/Socket.cpp.i
+.PHONY : src/muduo/Socket.cpp.i
+
+src/muduo/Socket.s: src/muduo/Socket.cpp.s
+.PHONY : src/muduo/Socket.s
+
+# target to generate assembly for a file
+src/muduo/Socket.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ShortVideoRank.dir/build.make CMakeFiles/ShortVideoRank.dir/src/muduo/Socket.cpp.s
+.PHONY : src/muduo/Socket.cpp.s
+
+src/muduo/TcpServer.o: src/muduo/TcpServer.cpp.o
+.PHONY : src/muduo/TcpServer.o
+
+# target to build an object file
+src/muduo/TcpServer.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ShortVideoRank.dir/build.make CMakeFiles/ShortVideoRank.dir/src/muduo/TcpServer.cpp.o
+.PHONY : src/muduo/TcpServer.cpp.o
+
+src/muduo/TcpServer.i: src/muduo/TcpServer.cpp.i
+.PHONY : src/muduo/TcpServer.i
+
+# target to preprocess a source file
+src/muduo/TcpServer.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ShortVideoRank.dir/build.make CMakeFiles/ShortVideoRank.dir/src/muduo/TcpServer.cpp.i
+.PHONY : src/muduo/TcpServer.cpp.i
+
+src/muduo/TcpServer.s: src/muduo/TcpServer.cpp.s
+.PHONY : src/muduo/TcpServer.s
+
+# target to generate assembly for a file
+src/muduo/TcpServer.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ShortVideoRank.dir/build.make CMakeFiles/ShortVideoRank.dir/src/muduo/TcpServer.cpp.s
+.PHONY : src/muduo/TcpServer.cpp.s
+
+src/muduo/ThreadPool.o: src/muduo/ThreadPool.cpp.o
+.PHONY : src/muduo/ThreadPool.o
+
+# target to build an object file
+src/muduo/ThreadPool.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ShortVideoRank.dir/build.make CMakeFiles/ShortVideoRank.dir/src/muduo/ThreadPool.cpp.o
+.PHONY : src/muduo/ThreadPool.cpp.o
+
+src/muduo/ThreadPool.i: src/muduo/ThreadPool.cpp.i
+.PHONY : src/muduo/ThreadPool.i
+
+# target to preprocess a source file
+src/muduo/ThreadPool.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ShortVideoRank.dir/build.make CMakeFiles/ShortVideoRank.dir/src/muduo/ThreadPool.cpp.i
+.PHONY : src/muduo/ThreadPool.cpp.i
+
+src/muduo/ThreadPool.s: src/muduo/ThreadPool.cpp.s
+.PHONY : src/muduo/ThreadPool.s
+
+# target to generate assembly for a file
+src/muduo/ThreadPool.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ShortVideoRank.dir/build.make CMakeFiles/ShortVideoRank.dir/src/muduo/ThreadPool.cpp.s
+.PHONY : src/muduo/ThreadPool.cpp.s
+
+src/muduo/Timestamp.o: src/muduo/Timestamp.cpp.o
+.PHONY : src/muduo/Timestamp.o
+
+# target to build an object file
+src/muduo/Timestamp.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ShortVideoRank.dir/build.make CMakeFiles/ShortVideoRank.dir/src/muduo/Timestamp.cpp.o
+.PHONY : src/muduo/Timestamp.cpp.o
+
+src/muduo/Timestamp.i: src/muduo/Timestamp.cpp.i
+.PHONY : src/muduo/Timestamp.i
+
+# target to preprocess a source file
+src/muduo/Timestamp.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ShortVideoRank.dir/build.make CMakeFiles/ShortVideoRank.dir/src/muduo/Timestamp.cpp.i
+.PHONY : src/muduo/Timestamp.cpp.i
+
+src/muduo/Timestamp.s: src/muduo/Timestamp.cpp.s
+.PHONY : src/muduo/Timestamp.s
+
+# target to generate assembly for a file
+src/muduo/Timestamp.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ShortVideoRank.dir/build.make CMakeFiles/ShortVideoRank.dir/src/muduo/Timestamp.cpp.s
+.PHONY : src/muduo/Timestamp.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -273,6 +537,39 @@ help:
 	@echo "... src/database/Connection.o"
 	@echo "... src/database/Connection.i"
 	@echo "... src/database/Connection.s"
+	@echo "... src/muduo/Acceptor.o"
+	@echo "... src/muduo/Acceptor.i"
+	@echo "... src/muduo/Acceptor.s"
+	@echo "... src/muduo/Buffer.o"
+	@echo "... src/muduo/Buffer.i"
+	@echo "... src/muduo/Buffer.s"
+	@echo "... src/muduo/Channel.o"
+	@echo "... src/muduo/Channel.i"
+	@echo "... src/muduo/Channel.s"
+	@echo "... src/muduo/Connection.o"
+	@echo "... src/muduo/Connection.i"
+	@echo "... src/muduo/Connection.s"
+	@echo "... src/muduo/Epoll.o"
+	@echo "... src/muduo/Epoll.i"
+	@echo "... src/muduo/Epoll.s"
+	@echo "... src/muduo/EventLoop.o"
+	@echo "... src/muduo/EventLoop.i"
+	@echo "... src/muduo/EventLoop.s"
+	@echo "... src/muduo/InetAddress.o"
+	@echo "... src/muduo/InetAddress.i"
+	@echo "... src/muduo/InetAddress.s"
+	@echo "... src/muduo/Socket.o"
+	@echo "... src/muduo/Socket.i"
+	@echo "... src/muduo/Socket.s"
+	@echo "... src/muduo/TcpServer.o"
+	@echo "... src/muduo/TcpServer.i"
+	@echo "... src/muduo/TcpServer.s"
+	@echo "... src/muduo/ThreadPool.o"
+	@echo "... src/muduo/ThreadPool.i"
+	@echo "... src/muduo/ThreadPool.s"
+	@echo "... src/muduo/Timestamp.o"
+	@echo "... src/muduo/Timestamp.i"
+	@echo "... src/muduo/Timestamp.s"
 .PHONY : help
 
 

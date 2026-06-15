@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/wevix/ShortVideoRank/include -I/home/wevix/ShortVideoRank/include/database -I/usr/include/mysql
+CXX_INCLUDES = -I/home/wevix/ShortVideoRank/include -I/home/wevix/ShortVideoRank/include/muduo -I/home/wevix/ShortVideoRank/include/database -I/usr/include/mysql
 
 CXX_FLAGS = -std=gnu++14
 

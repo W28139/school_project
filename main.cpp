@@ -1,4 +1,3 @@
-#include <muduo/net/EventLoop.h>
 #include <csignal>
 #include <iostream>
 #include "NetServer.h"
@@ -28,45 +27,17 @@ int main(int argc, char* argv[]) {
     // 1. 初始化数据库连接池
     ConnectionPool *cp = ConnectionPool::getConnectionPool();
 
-    muduo::net::EventLoop loop;
-    muduo::net::InetAddress listenAddr(8000);
-    
-    // 2. 创建服务器对象
-    NetServer server(&loop, listenAddr);
-    g_server = &server; // 赋值给全局指针，供信号处理函数使用
+    // 2. 创建muduo
+    NetServer server("0.0.0.0", 8000, 4);
 
-    // 3. 【核心逻辑 A】启动时：从本地文件恢复数据
+    // 3. 启动时：从本地文件恢复数据
     // server.getRankManager().loadFromFile("rank_data.txt");
 
     // 4. 注册信号处理：处理 Ctrl+C (SIGINT)
     std::signal(SIGINT, handleSignal);
 
-    // 5. 设置服务器线程数
-    server.setThreadNum(4);
+    // 5. 启动服务器（内部会调用 mainloop_->run()）
     server.start();
 
-    // 6. 【核心逻辑 B】设置定时器 (muduo 内部机制)
-    
-    // 定时任务 1：每 5 秒同步一次 MySQL (保证前端看到的排行榜是准实时的)
-    loop.runEvery(5.0, [&](){
-        std::cout << "[Timer] 正在同步 Top100 数据到 MySQL..." << std::endl;
-        server.getRankManager().syncToDb();
-    });
-
-    // 定时任务 2：每 60 秒做一次全量磁盘备份 (防止硬件故障或断电丢失非榜单数据)
-    loop.runEvery(60.0, [&](){
-        std::cout << "[Timer] 正在执行全量数据磁盘备份..." << std::endl;
-        server.getRankManager().saveToFile("rank_data.txt");
-    });
-
-    std::cout << "------------------------------------------------" << std::endl;
-    std::cout << "服务器已启动!" << std::endl;
-    std::cout << "1. 监听端口: 8000" << std::endl;
-    std::cout << "2. 数据库同步: 每 5s 一次" << std::endl;
-    std::cout << "3. 磁盘备份: 每 60s 一次" << std::endl;
-    std::cout << "------------------------------------------------" << std::endl;
-
-    loop.loop(); 
-    
     return 0;
 }

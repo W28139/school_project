@@ -16,6 +16,7 @@ set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)
 # 指定头文件的搜索路径
 include_directories(
     ${PROJECT_SOURCE_DIR}/include   # 你自己的 .h 文件夹
+    ${PROJECT_SOURCE_DIR}/include/muduo
     ${PROJECT_SOURCE_DIR}/include/database
     /usr/include/mysql              # MySQL 官方库的头文件路径
 )
@@ -43,8 +44,6 @@ add_executable(
 # 指定连接时需要链接的库
 target_link_libraries(
     ShortVideoRank
-    muduo_net       # 陈硕的 Muduo 网络库（处理高并发网络连接）
-    muduo_base      # Muduo 基础库
     pthread         # 多线程支持库
     mysqlclient     # MySQL 客户端官方库
 )

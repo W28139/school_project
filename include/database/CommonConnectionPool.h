@@ -1,7 +1,7 @@
 #pragma once
 #include<string>
 #include<queue>
-#include"Connection.h"
+#include"database/Connection.h"
 #include<mutex>
 #include<atomic>
 #include<condition_variable>
