@@ -131,7 +131,9 @@ std::string convertToJSON(const std::vector<std::shared_ptr<Video>>& topList) {
            << "\"id\":\"" << topList[i]->videoId << "\","
            << "\"heat\":" << std::fixed << std::setprecision(2) << topList[i]->heat << ","
            << "\"play\":" << topList[i]->playCount << ","
-           << "\"like\":" << topList[i]->likeCount
+           << "\"like\":" << topList[i]->likeCount << ","  // 注意逗号
+           << "\"share\":" << topList[i]->shareCount << "," // 对应前端 item.share
+           << "\"finishRate\":" << std::fixed << std::setprecision(2) << topList[i]->finishRate // 对应前端 item.finishRate
            << "}";
         if (i < topList.size() - 1) ss << ",";
     }
