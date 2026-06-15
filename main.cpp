@@ -27,7 +27,6 @@ void handleSignal(int sig) {
 int main(int argc, char* argv[]) {
     // 1. 初始化数据库连接池
     ConnectionPool *cp = ConnectionPool::getConnectionPool();
-    g_server->getRankManager().syncToDb();
 
     muduo::net::EventLoop loop;
     muduo::net::InetAddress listenAddr(8000);

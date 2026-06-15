@@ -16,22 +16,22 @@ set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)
 # 指定头文件的搜索路径
 include_directories(
     ${PROJECT_SOURCE_DIR}/include   # 你自己的 .h 文件夹
+    ${PROJECT_SOURCE_DIR}/include/database
     /usr/include/mysql              # MySQL 官方库的头文件路径
 )
-
 # 自动搜索源文件（报错的根源就在这）
 # GLOB_RECURSE 会递归扫描 src 目录下所有的 .cpp 文件并赋值给 SOURCES 变量
 # 注意：当你新增或删除文件时，CMake 不会自动感知，必须重新运行 cmake 命令
-# file(GLOB_RECURSE SOURCES
-#     "src/*.cpp"
-# )
-# 手动
-set(SOURCES
-    src/Connection.cpp
-    src/CommonConnectionPool.cpp
-    src/NetServer.cpp
-    src/RankManager.cpp
+file(GLOB_RECURSE SOURCES
+    "src/*.cpp"
 )
+# 手动
+# set(SOURCES
+#     src/Connection.cpp
+#     src/CommonConnectionPool.cpp
+#     src/NetServer.cpp
+#     src/RankManager.cpp
+# )
 
 # 生成可执行程序
 add_executable(

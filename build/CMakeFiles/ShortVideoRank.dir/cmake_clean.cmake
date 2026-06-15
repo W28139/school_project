@@ -3,14 +3,14 @@ file(REMOVE_RECURSE
   "/home/wevix/ShortVideoRank/bin/ShortVideoRank.pdb"
   "CMakeFiles/ShortVideoRank.dir/main.cpp.o"
   "CMakeFiles/ShortVideoRank.dir/main.cpp.o.d"
-  "CMakeFiles/ShortVideoRank.dir/src/CommonConnectionPool.cpp.o"
-  "CMakeFiles/ShortVideoRank.dir/src/CommonConnectionPool.cpp.o.d"
-  "CMakeFiles/ShortVideoRank.dir/src/Connection.cpp.o"
-  "CMakeFiles/ShortVideoRank.dir/src/Connection.cpp.o.d"
   "CMakeFiles/ShortVideoRank.dir/src/NetServer.cpp.o"
   "CMakeFiles/ShortVideoRank.dir/src/NetServer.cpp.o.d"
   "CMakeFiles/ShortVideoRank.dir/src/RankManager.cpp.o"
   "CMakeFiles/ShortVideoRank.dir/src/RankManager.cpp.o.d"
+  "CMakeFiles/ShortVideoRank.dir/src/database/CommonConnectionPool.cpp.o"
+  "CMakeFiles/ShortVideoRank.dir/src/database/CommonConnectionPool.cpp.o.d"
+  "CMakeFiles/ShortVideoRank.dir/src/database/Connection.cpp.o"
+  "CMakeFiles/ShortVideoRank.dir/src/database/Connection.cpp.o.d"
 )
 
 # Per-language clean rules from dependency scanning.

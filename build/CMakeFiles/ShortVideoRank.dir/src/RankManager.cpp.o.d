@@ -196,11 +196,11 @@ CMakeFiles/ShortVideoRank.dir/src/RankManager.cpp.o: \
  /usr/include/mysql/plugin_auth_common.h \
  /usr/include/mysql/mysql_version.h /usr/include/mysql/mysql_time.h \
  /usr/include/mysql/errmsg.h \
- /home/wevix/ShortVideoRank/include/CommonConnectionPool.h \
+ /home/wevix/ShortVideoRank/include/database/CommonConnectionPool.h \
  /usr/include/c++/13/queue /usr/include/c++/13/deque \
  /usr/include/c++/13/bits/stl_deque.h /usr/include/c++/13/bits/deque.tcc \
  /usr/include/c++/13/bits/stl_queue.h \
- /home/wevix/ShortVideoRank/include/Connection.h \
- /home/wevix/ShortVideoRank/include/public.h /usr/include/c++/13/atomic \
- /usr/include/c++/13/condition_variable /usr/include/c++/13/functional \
- /usr/include/c++/13/bits/std_function.h
+ /home/wevix/ShortVideoRank/include/database/Connection.h \
+ /home/wevix/ShortVideoRank/include/database/public.h \
+ /usr/include/c++/13/atomic /usr/include/c++/13/condition_variable \
+ /usr/include/c++/13/functional /usr/include/c++/13/bits/std_function.h

@@ -4,6 +4,7 @@
 #include <fstream>
 #include<thread>
 #include <chrono>
+#include<unistd.h>
 ConnectionPool::ConnectionPool()
 {
     // 之前写的加载配置文件的函数在这里调用
@@ -40,12 +41,12 @@ ConnectionPool* ConnectionPool::getConnectionPool()
     return &pool;
 }
 
-bool ConnectionPool::loadConfigFile()
-{
+bool ConnectionPool::loadConfigFile() {
     std::ifstream ifs("mysql.cnf");
-    if (!ifs.is_open())
-    {
-        LOG("mysql.cnf file is not exist!");
+    if (!ifs.is_open()) {
+        char buf[256];
+        getcwd(buf, sizeof(buf)); // 获取当前程序的工作目录
+        LOG("找不到配置文件！当前工作目录是: " + std::string(buf));
         return false;
     }
 

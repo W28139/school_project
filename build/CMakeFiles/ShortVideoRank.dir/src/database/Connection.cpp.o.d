@@ -1,6 +1,7 @@
-CMakeFiles/ShortVideoRank.dir/src/Connection.cpp.o: \
- /home/wevix/ShortVideoRank/src/Connection.cpp /usr/include/stdc-predef.h \
- /home/wevix/ShortVideoRank/include/Connection.h \
+CMakeFiles/ShortVideoRank.dir/src/database/Connection.cpp.o: \
+ /home/wevix/ShortVideoRank/src/database/Connection.cpp \
+ /usr/include/stdc-predef.h \
+ /home/wevix/ShortVideoRank/include/database/Connection.h \
  /usr/include/mysql/mysql.h \
  /usr/lib/gcc/x86_64-linux-gnu/13/include/stdbool.h \
  /usr/lib/gcc/x86_64-linux-gnu/13/include/stddef.h \
@@ -127,9 +128,10 @@ CMakeFiles/ShortVideoRank.dir/src/Connection.cpp.o: \
  /usr/include/x86_64-linux-gnu/bits/timex.h \
  /usr/include/x86_64-linux-gnu/bits/types/struct_tm.h \
  /usr/include/x86_64-linux-gnu/bits/types/struct_itimerspec.h \
- /home/wevix/ShortVideoRank/include/public.h /usr/include/c++/13/iostream \
- /usr/include/c++/13/ostream /usr/include/c++/13/ios \
- /usr/include/c++/13/exception /usr/include/c++/13/bits/exception_ptr.h \
+ /home/wevix/ShortVideoRank/include/database/public.h \
+ /usr/include/c++/13/iostream /usr/include/c++/13/ostream \
+ /usr/include/c++/13/ios /usr/include/c++/13/exception \
+ /usr/include/c++/13/bits/exception_ptr.h \
  /usr/include/c++/13/bits/cxxabi_init_exception.h \
  /usr/include/c++/13/typeinfo /usr/include/c++/13/bits/nested_exception.h \
  /usr/include/c++/13/bits/ios_base.h /usr/include/c++/13/ext/atomicity.h \

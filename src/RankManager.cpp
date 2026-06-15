@@ -222,6 +222,10 @@ void RankManager::syncToDb() {
     // 2. 从新的连接池中获取连接
     // getConnection() 返回的是 std::shared_ptr<Connection>
     auto sp = ConnectionPool::getConnectionPool()->getConnection();
+    if (sp == nullptr) {
+        LOG("连接池为空，请检查配置文件是否在当前目录下！");
+        return; 
+    }
     
     if (sp == nullptr) {
         LOG("获取数据库连接失败，无法同步数据");
