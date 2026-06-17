@@ -30,6 +30,15 @@ int main(int argc, char* argv[]) {
     // 2. 创建muduo
     NetServer server("0.0.0.0", 8000, 4);
 
+    RankManager& rankm = server.getRankManager();
+
+    double w1,w2,w3,w4;
+    w1 = 0.4; 
+    w2 = 0.3; 
+    w3 = 0.2; 
+    w4 = 0.1; 
+    rankm.set_W(w1,w2,w3,w4);
+
     // 3. 启动时：从本地文件恢复数据
     // server.getRankManager().loadFromFile("rank_data.txt");
 

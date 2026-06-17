@@ -22,6 +22,8 @@ public:
 
     void saveToFile(const std::string& filename);
     void loadFromFile(const std::string& filename);
+
+    void set_W(double w1,double w2,double w3,double w4);
     
 private:
     int _topK;

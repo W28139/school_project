@@ -6,11 +6,22 @@
 #include "CommonConnectionPool.h"
 
 // #include "SqlConnRAII.h"
-RankManager::RankManager(int topK) : _topK(topK) {
+RankManager::RankManager(int topK) : _topK(topK) 
+{
     _minHeap.reserve(_topK);
     // 显式初始化权重，否则 heat 计算会出错
     _w1 = 0.4; _w2 = 0.3; _w3 = 0.2; _w4 = 0.1;
 }
+
+
+void RankManager::set_W(double w1,double w2,double w3,double w4)
+{
+    _w1 = w1;
+    _w2 = w2;
+    _w3 = w3;
+    _w4 = w4;
+}
+
 
 // 核心方法：更新视频数据并调整榜单
 void RankManager::updateVideo(const std::string& id, int type, double value) 
